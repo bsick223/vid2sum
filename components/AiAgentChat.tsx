@@ -38,9 +38,11 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       },
     });
 
-  const isScriptGenerationEnabled = useSchematicFlag(
-    FeatureFlag.SCRIPT_GENERATION
-  );
+  const isVideoAnalysisEnabled = useSchematicFlag(FeatureFlag.ANALYSE_VIDEO);
+
+  const isScriptGenerationEnabled =
+    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) && isVideoAnalysisEnabled; 
+    // Script generation's flag is always true, but the feature is only enabled if video analysis is enabled
 
   const isImageGenerationEnabled = useSchematicFlag(
     FeatureFlag.IMAGE_GENERATION
@@ -49,8 +51,6 @@ function AiAgentChat({ videoId }: { videoId: string }) {
   const isTitleGenerationEnabled = useSchematicFlag(
     FeatureFlag.TITLE_GENERATIONS
   );
-
-  const isVideoAnalysisEnabled = useSchematicFlag(FeatureFlag.ANALYSE_VIDEO);
 
   useEffect(() => {
     if (bottomRef.current && messagesContainerRef.current) {

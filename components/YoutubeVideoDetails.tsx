@@ -18,11 +18,12 @@ function YoutubeVideoDetails({ videoId }: { videoId: string }) {
     fetchVideoDetails();
   }, [videoId]);
 
-if (!video)
+  if (!video)
     return (
-        <div className="flex items-center justify-center min-h-screen">
-            <div className="w-16 h-16 border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full animate-spin"></div>
-        </div>
+      <div className="flex items-center justify-center h-[200px]">
+        <div className="w-16 h-16 border-4 border-t-4 border-gray-200 border-t-blue-500 rounded-full"></div>
+        {/* Removed animate-spin because it wasn't mobile compatable */}
+      </div>
     );
 
   console.log(video);
