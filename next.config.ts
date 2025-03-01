@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         hostname: "yt3.ggpht.com",
         protocol: "https",
       },
+      {
+        hostname: "elegant-starfish-986.convex.cloud",
+        protocol: "https",
+      },
     ],
   },
 };

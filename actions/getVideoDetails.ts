@@ -31,7 +31,7 @@ export async function getVideoDetails(videoId: string) {
 
     const channelDetails = channelResponse.data.items?.[0];
 
-    console.log("📹 Video details fetched successfully:", videoDetails);
+    console.log("📹 Video details fetched successfully");
 
     const video: VideoDetails = {
       // Video Info
