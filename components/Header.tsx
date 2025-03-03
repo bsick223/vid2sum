@@ -32,7 +32,18 @@ function Header() {
               <Link href="/manage-plan">
                 <Button
                   variant="outline"
-                  className="mr-4 bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text"
+                  className="w-fit relative bg-white text-gray-800 hover:text-blue-600
+                font-semibold px-4 py-2 rounded-lg
+                transition-all duration-100 ease-in-out
+                border border-blue-200 hover:border-blue-300
+                overflow-hidden
+                before:absolute before:inset-0
+                before:bg-gradient-to-r before:from-transparent before:via-amber-400/30 before:to-transparent
+                before:translate-x-[-200%] hover:before:translate-x-[200%]
+                before:transition-transform before:duration-1000
+                before:pointer-events-none
+                hover:shadow-md
+                active:scale-95 active:shadow-inner"
                 >
                   Manage Plan
                 </Button>
