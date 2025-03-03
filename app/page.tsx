@@ -7,6 +7,7 @@ import {
   Video,
 } from "lucide-react";
 import YoutubeVideoForm from "@/components/YoutubeVideoForm";
+import TorusKnot from "@/components/TorusKnot";
 
 const steps = [
   {
@@ -83,7 +84,10 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center gap-10 text-center mb-12">
-            <AgentPulse size="large" color="blue" />
+            <div className="w-full h-[200px]">
+              <TorusKnot />
+            </div>
+            
 
             <h1
               className="text-4xl md:text-6xl font-bold
