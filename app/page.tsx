@@ -60,9 +60,9 @@ const features = [
     iconColor: "text-yellow-600",
   },
   {
-    title: "Shot Script",
+    title: "Viral Video Guide",
     description:
-      "Get detailed, step-by-step instructions to recreate viral videos. Learn shooting techniques, camera angles, and editing tips from successful content.",
+      "Get detailed, step-by-step instructions to recreate viral videos. Learn shooting techniques, camera angles, and craft scripts easily from successful content.",
     icon: Video,
     iconBg: "bg-red-100",
     iconColor: "text-red-600",
