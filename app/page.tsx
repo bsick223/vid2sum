@@ -178,11 +178,11 @@ export default function Home() {
             Ready to Meet Your AI Content Agent?
           </h2>
           <p className="text-xl text-blue-50">
-            Join creators leveraging AI to unlock content insights
+            Start with a free analysis by signing up today.
           </p>
-          <p>
+            <p className="mt-4">
             &copy; {new Date().getFullYear()} TrendFast. All rights reserved.
-          </p>
+            </p>
         </div>
       </footer>
     </div>
