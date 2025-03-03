@@ -1,4 +1,4 @@
-import AgentPulse from "@/components/AgentPulse";
+// import AgentPulse from "@/components/AgentPulse";
 import {
   Brain,
   Image as ImageIcon,
