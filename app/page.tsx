@@ -60,7 +60,7 @@ const features = [
     iconColor: "text-yellow-600",
   },
   {
-    title: "Viral Video Guide",
+    title: "Viral Video Outline",
     description:
       "Get detailed, step-by-step instructions to recreate viral videos. Learn shooting techniques, camera angles, and craft scripts easily from successful content.",
     icon: Video,
@@ -77,6 +77,24 @@ const features = [
   },
 ];
 
+const testimonials = [
+  {
+    name: "Alex Carter",
+    feedback:
+      "I used to spend hours analyzing my YouTube content. Now I rely on TrendFast's AI agent to handle it for me. My engagement rates have already doubled!",
+  },
+  {
+    name: "Mia Rodriguez",
+    feedback:
+      "I love how quick and easy it is. The transcription feature alone saves me so much time, and the insights are on point.",
+  },
+  {
+    name: "Jordan Wells",
+    feedback:
+      "The advice from my AI agent helped me craft titles that went viral. Never thought I'd see such a jump in views!",
+  },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -87,7 +105,6 @@ export default function Home() {
             <div className="w-full h-[200px]">
               <TorusKnot />
             </div>
-            
 
             <h1
               className="text-4xl md:text-6xl font-bold
@@ -175,6 +192,57 @@ export default function Home() {
         </div>
       </section>
 
+      {/* YouTube Embed Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            Watch Our Introduction Video
+          </h2>
+          <div className="flex justify-center">
+            {/* Wrap the iframe in a parent div to control rounded edges */}
+            <div
+              className="overflow-hidden rounded-lg shadow-lg"
+              style={{ width: "1120px", height: "630px" }}
+            >
+              <iframe
+                className="w-full h-full"
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/iQaRDVUWgzM?si=pvz8JG_qMFhKoQ4u"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* New: Testimonials Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4 max-w-6xl">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            What Our Creators Are Saying
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 border border-gray-200 p-6 rounded-xl shadow-sm hover:shadow-md transition"
+              >
+                <p className="text-gray-600 mb-4">
+                  &quot;{testimonial.feedback}&quot;
+                </p>
+                <h3 className="text-lg font-bold text-gray-900">
+                  - {testimonial.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer Section */}
       <footer className="py-20 px-4 md:px-0 bg-gradient-to-r from-blue-600 to-blue-400">
         <div className="text-center">
@@ -184,9 +252,9 @@ export default function Home() {
           <p className="text-xl text-blue-50">
             Start with a free analysis by signing up today.
           </p>
-            <p className="mt-4">
+          <p className="mt-4">
             &copy; {new Date().getFullYear()} TrendFast. All rights reserved.
-            </p>
+          </p>
         </div>
       </footer>
     </div>
