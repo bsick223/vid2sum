@@ -93,6 +93,7 @@ function AnalysisPage() {
 
           {/* Title Generation */}
           <TitleGenerations videoId={videoId} />
+
           {/* Transcription */}
           <Transcription videoId={videoId} />
         </div>

@@ -9,6 +9,7 @@ import {
 import YoutubeVideoForm from "@/components/YoutubeVideoForm";
 import TorusKnot from "@/components/TorusKnot";
 import ProductHuntEmbed from "@/components/ProductHuntEmbed";
+import CountDownTimer from "@/components/CountdownTimer";
 
 const steps = [
   {
@@ -102,7 +103,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-            <div className="flex flex-col items-center gap-2 md:gap-10 text-center mb-12">
+          <div className="flex flex-col items-center gap-2 md:gap-10 text-center mb-12">
             <div className="w-full h-[200px]">
               <TorusKnot />
             </div>
@@ -121,14 +122,18 @@ export default function Home() {
             </h1>
 
             <p className="text-xl text-gray-600 mb-8 md:mb-3 max-w-2xl mx-auto">
-              Transform your video content with smart analysis,
-              easy transcription, and valuable insights. Get started in seconds.
+              Transform your video content with smart analysis, easy
+              transcription, and valuable insights. Get started in seconds.
             </p>
 
             <YoutubeVideoForm />
           </div>
         </div>
       </section>
+      <div className="py-10">
+        <ProductHuntEmbed />
+      </div>
+      <CountDownTimer />
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -243,10 +248,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <div className="py-10">
-        <ProductHuntEmbed />
-      </div>
 
       {/* Footer Section */}
       <footer className="py-20 px-4 md:px-0 bg-gradient-to-r from-blue-600 to-blue-400">

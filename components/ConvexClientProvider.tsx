@@ -11,7 +11,14 @@ export const convex = new ConvexReactClient(
 
 export function ConvexClientProvider({ children }: { children: ReactNode }) {
   return (
-    <ClerkProvider afterSignOutUrl="/">
+    <ClerkProvider
+      appearance={{
+        layout: {
+          unsafe_disableDevelopmentModeWarnings: true,
+        },
+      }}
+      afterSignOutUrl="/"
+    >
       <ConvexProviderWithClerk useAuth={useAuth} client={convex}>
         {children}
       </ConvexProviderWithClerk>

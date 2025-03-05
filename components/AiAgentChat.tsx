@@ -8,6 +8,7 @@ import { FeatureFlag } from "@/features/flags";
 import { BotIcon, ImageIcon, LetterText, PenIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { toast } from "sonner";
+import QuestionMarkTooltip from "./QuestionMarkTooltip";
 
 interface ToolInvocation {
   toolCallId: string;
@@ -200,8 +201,10 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       </div>
 
       {/* Input Form */}
-      <div className="border-t border-gray-100 p-4 bg-white">
-        <div className="space-y-3">
+      <QuestionMarkTooltip />
+        <div className="border-t border-gray-100 p-4 bg-white">
+          <div className="space-y-3">
+            <form onSubmit={handleSubmit} className="flex gap-2 items-center"></form>
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
