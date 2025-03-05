@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import YoutubeVideoForm from "@/components/YoutubeVideoForm";
 import TorusKnot from "@/components/TorusKnot";
+import ProductHuntEmbed from "@/components/ProductHuntEmbed";
 
 const steps = [
   {
@@ -242,6 +243,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <div className="py-10">
+        <ProductHuntEmbed />
+      </div>
 
       {/* Footer Section */}
       <footer className="py-20 px-4 md:px-0 bg-gradient-to-r from-blue-600 to-blue-400">

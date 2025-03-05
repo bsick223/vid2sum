@@ -10,9 +10,7 @@ const ProductHuntEmbed: React.FC = () => {
       <img
         src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=938320&theme=light&t=1741133259186"
         alt="TrendFast AI - AI agent to help content creators with viral videos | Product Hunt"
-        style={{ width: "175px", height: "54px" }}
-        width="250"
-        height="54"
+        className="max-w-[175px] md:max-w-[250px] w-auto h-auto mx-auto"
       />
     </a>
   );

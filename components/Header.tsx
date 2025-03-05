@@ -29,7 +29,6 @@ function Header() {
 
           {/* Right */}
           <div className="flex items-center gap-4">
-          <ProductHuntEmbed />
             <SignedIn>
               <Link href="/manage-plan">
                 <Button
