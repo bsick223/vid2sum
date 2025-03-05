@@ -4,7 +4,6 @@ import Link from "next/link";
 import AgentPulse from "./AgentPulse";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
-import ProductHuntEmbed from "./ProductHuntEmbed";
 
 function Header() {
   return (
