@@ -101,7 +101,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center gap-10 text-center mb-12">
+            <div className="flex flex-col items-center gap-2 md:gap-10 text-center mb-12">
             <div className="w-full h-[200px]">
               <TorusKnot />
             </div>
@@ -119,9 +119,9 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-              Transform your video content with AI-powered analysis,
-              transcription, and insights. Get started in seconds.
+            <p className="text-xl text-gray-600 mb-8 md:mb-3 max-w-2xl mx-auto">
+              Transform your video content with smart analysis,
+              easy transcription, and valuable insights. Get started in seconds.
             </p>
 
             <YoutubeVideoForm />
