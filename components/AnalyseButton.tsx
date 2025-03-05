@@ -14,7 +14,7 @@ function AnalyseButton() {
     disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 
     font-medium"
     >
-        {pending ? "Analyzing..." : "Analyze"}
+        {pending ? "Analyzing..." : "Deep Research"}
     </button>
   )
 }
