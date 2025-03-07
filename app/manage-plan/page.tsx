@@ -1,4 +1,4 @@
-import CountdownTimer from "@/components/CountdownTimer";
+// import CountdownTimer from "@/components/CountdownTimer";
 import SchematicComponent from "@/components/schematic/SchematicComponent";
 
 function ManagePlan() {
@@ -12,7 +12,7 @@ function ManagePlan() {
       </p>
 
       <SchematicComponent componentId="cmpn_h6scVDKY9Dm" />
-      <CountdownTimer/>
+      {/* <CountdownTimer/> */}
       <footer className="mt-8 text-center text-sm text-gray-500">
         <p className="mb-2">Need help with your subscription? Contact our support team at <span className="text-blue-600">brendansick@gmail.com</span></p>
         <p>&copy; {new Date().getFullYear()} TrendFast. All rights reserved.</p>

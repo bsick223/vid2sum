@@ -1,4 +1,5 @@
 // import AgentPulse from "@/components/AgentPulse";
+// import CountDownTimer from "@/components/CountdownTimer";
 import {
   Brain,
   Image as ImageIcon,
@@ -9,7 +10,6 @@ import {
 import YoutubeVideoForm from "@/components/YoutubeVideoForm";
 import TorusKnot from "@/components/TorusKnot";
 import ProductHuntEmbed from "@/components/ProductHuntEmbed";
-import CountDownTimer from "@/components/CountdownTimer";
 
 const steps = [
   {
@@ -130,10 +130,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <div className="py-10">
-        <ProductHuntEmbed />
-      </div>
-      <CountDownTimer />
+      {/* <CountDownTimer /> */}
 
       {/* Features Section */}
       <section className="py-20 bg-white">
@@ -248,6 +245,10 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+      <div className="py-10">
+        <ProductHuntEmbed />
+      </div>
 
       {/* Footer Section */}
       <footer className="py-20 px-4 md:px-0 bg-gradient-to-r from-blue-600 to-blue-400">
