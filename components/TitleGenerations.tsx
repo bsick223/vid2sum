@@ -13,21 +13,21 @@ function TitleGenerations({ videoId }: { videoId: string }) {
   const { user } = useUser();
   const titles = useQuery(api.titles.list, { videoId, userId: user?.id ?? "" });
 
-  console.log(user, titles, videoId)
+  console.log(user, titles, videoId);
 
   const { value: isTitleGenerationEnabled } = useSchematicEntitlement(
     FeatureFlag.TITLE_GENERATIONS
   );
 
-    const copyToClipboard = (text: string) => {
-        navigator.clipboard.writeText(text);
-        toast.success("Copied to clipboard!");
-    };
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard!");
+  };
 
   return (
     <div className="p-4 border border-gray-200 rounded-xl bg-white shadow-sm">
       <div className="min-w-52">
-        <Usage featureFlag={FeatureFlag.TITLE_GENERATIONS} title="Titles" />
+        <Usage featureFlag={FeatureFlag.TITLE_GENERATIONS} title="Study Guides" />
       </div>
 
       <div className="space-y-3 mt-4 max-h-[280px] overflow-y-auto">
@@ -62,9 +62,9 @@ function TitleGenerations({ videoId }: { videoId: string }) {
           className="text-center py-8 px-4 rounded-lg mt-4 border-2 
             border-dashed border-gray-200"
         >
-          <p className="text-gray-500">No titles have been generated yet</p>
+          <p className="text-gray-500">No Study Guides have been generated yet</p>
           <p className="text-sm text-gray-400 mt-1">
-            Generate titles to see them appear here
+            Generate Study Guides to see them appear here
           </p>
         </div>
       )}

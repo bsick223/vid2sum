@@ -17,4 +17,15 @@ export interface VideoDetails {
     channel: ChannelDetails;
     publishedAt: string;
   }
+
+  // New color-related types
+export type ColorKey = 'blue' | 'indigo' | 'purple' | 'pink' | 'orange' | 'green';
+
+// Feature interface with color property
+export interface Feature {
+  title: string;
+  description: string;
+  color: ColorKey;
+  // Add any other properties your feature might have
+}
   

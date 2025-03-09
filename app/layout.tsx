@@ -5,7 +5,7 @@ import ClientWrapper from "@/components/ClientWrapper";
 import Header from "@/components/Header";
 import { Toaster } from "sonner";
 import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Trend Fast AI",
-  description: "Meet Your Personal AI Content Agent",
+  title: "Vid2Sum",
+  description: "Summarize Youtube Videos for Free",
 };
 
 export default function RootLayout({

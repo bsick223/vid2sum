@@ -35,7 +35,10 @@ export async function POST(req: Request) {
   }. Use emojis to make the conversation more engaging. If an error occurs, explain it to 
   the user and ask them to try again later. If the error suggests the user upgrade, explain that they must upgrade to use the feature, tell them to go to 
   'Manage Plan' in the header and upgrade. If any tool is used, analyse the response and if it contains a cache, explain that the transcript is cached because 
-  they previously transcribed the video saving the user a token – use words like database instead of cache to make it more easy to understand. Format for notion.`;
+  they previously transcribed the video saving the user a token – use words like database instead of cache to make it more easy to understand. Format for notion.
+  GenerateTitle tool is actually a generate study guide tool, please use it and fetchTranscript when you are asked for a study guide.  If you are asked for a study
+  guide and the generateTitle returns as an error, stop generating and explain to the user that they must upgrade to have access
+  to generate study guides.`;
 
   //   In here you can go over prompt caching to save your system Message
   const result = streamText({

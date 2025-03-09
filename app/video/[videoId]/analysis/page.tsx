@@ -1,8 +1,8 @@
 "use client";
 
+// import ThumbnailGeneration from "@/components/ThumbnailGeneration";
 import { createOrGetVideo } from "@/actions/createOrGetVideo";
 import AiAgentChat from "@/components/AiAgentChat";
-import ThumbnailGeneration from "@/components/ThumbnailGeneration";
 import TitleGenerations from "@/components/TitleGenerations";
 import Transcription from "@/components/Transcription";
 import Usage from "@/components/Usage";
@@ -88,10 +88,10 @@ function AnalysisPage() {
           {/* Youtube Video Details */}
           <YoutubeVideoDetails videoId={videoId} />
 
-          {/* Thumbnail Generation */}
-          <ThumbnailGeneration videoId={videoId} />
+          {/* Thumbnail Generation - redacted*/}
+          {/* <ThumbnailGeneration videoId={videoId} /> */}
 
-          {/* Title Generation */}
+          {/* Title Generation - redacted*/}
           <TitleGenerations videoId={videoId} />
 
           {/* Transcription */}

@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import AgentPulse from "./AgentPulse";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
+import logo from "../assets/Logo(transparent).png"
+import Image from "next/image";
 
 function Header() {
   return (
@@ -16,13 +17,13 @@ function Header() {
           {/* Left */}
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-4">
-              <AgentPulse size="small" color="blue" />
-                <h1
-                className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-blue-600 
-                to-blue-400 bg-clip-text text-transparent"
-                >
-                TrendFast
-                </h1>
+                <Image
+                src={logo} 
+                alt="Vid2Sum Logo"
+                width={150} // Adjust width as needed
+                height={50} // Adjust height as needed
+                priority // Ensures the logo loads quickly
+              />
             </Link>
           </div>
 

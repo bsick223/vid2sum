@@ -5,7 +5,7 @@ import { Button } from "./ui/button";
 import ReactMarkdown from "react-markdown";
 import { useSchematicFlag } from "@schematichq/schematic-react";
 import { FeatureFlag } from "@/features/flags";
-import { BotIcon, ImageIcon, LetterText, PenIcon } from "lucide-react";
+import { BotIcon, LetterText, PenIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { toast } from "sonner";
 import QuestionMarkTooltip from "./QuestionMarkTooltip";
@@ -42,16 +42,15 @@ function AiAgentChat({ videoId }: { videoId: string }) {
   const isVideoAnalysisEnabled = useSchematicFlag(FeatureFlag.ANALYSE_VIDEO);
 
   const isScriptGenerationEnabled =
-    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) && isVideoAnalysisEnabled; 
-    // Script generation's flag is always true, but the feature is only enabled if video analysis is enabled
+    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) && isVideoAnalysisEnabled;
+  // Script generation's flag is always true, but the feature is only enabled if video analysis is enabled
 
-  const isImageGenerationEnabled = useSchematicFlag(
-    FeatureFlag.IMAGE_GENERATION
-  );
+  // const isImageGenerationEnabled = useSchematicFlag(
+  //   FeatureFlag.IMAGE_GENERATION
+  // );
 
-  const isTitleGenerationEnabled = useSchematicFlag(
-    FeatureFlag.TITLE_GENERATIONS
-  );
+  const isTitleGenerationEnabled =
+    useSchematicFlag(FeatureFlag.TITLE_GENERATIONS) && isVideoAnalysisEnabled;
 
   useEffect(() => {
     if (bottomRef.current && messagesContainerRef.current) {
@@ -101,22 +100,22 @@ function AiAgentChat({ videoId }: { videoId: string }) {
     append(userMessage);
   };
 
-  const generateImage = async () => {
-    const randomId = Math.random().toString(36).substring(2, 15);
-    const userMessage: Message = {
-      id: `generate-image-${randomId}`,
-      role: "user",
-      content: "Generate a thumbnail for this video",
-    };
-    append(userMessage);
-  };
+  // const generateImage = async () => {
+  //   const randomId = Math.random().toString(36).substring(2, 15);
+  //   const userMessage: Message = {
+  //     id: `generate-image-${randomId}`,
+  //     role: "user",
+  //     content: "Generate a thumbnail for this video",
+  //   };
+  //   append(userMessage);
+  // };
 
   const generateTitle = async () => {
     const randomId = Math.random().toString(36).substring(2, 15);
     const userMessage: Message = {
       id: `generate-title-${randomId}`,
       role: "user",
-      content: "Generate a title for this video",
+      content: "Generate a study guide",
     };
     append(userMessage);
   };
@@ -202,9 +201,12 @@ function AiAgentChat({ videoId }: { videoId: string }) {
 
       {/* Input Form */}
       <QuestionMarkTooltip />
-        <div className="border-t border-gray-100 p-4 bg-white">
-          <div className="space-y-3">
-            <form onSubmit={handleSubmit} className="flex gap-2 items-center"></form>
+      <div className="border-t border-gray-100 p-4 bg-white">
+        <div className="space-y-3">
+          <form
+            onSubmit={handleSubmit}
+            className="flex gap-2 items-center"
+          ></form>
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
               className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -255,10 +257,10 @@ function AiAgentChat({ videoId }: { videoId: string }) {
               disabled={!isTitleGenerationEnabled}
             >
               <PenIcon className="w-4 h-4" />
-              Generate Title
+              Generate Study Guide
             </button>
 
-            <button
+            {/* <button
               className="text-xs xl:text-sm w-full flex items-center justify-center gap-2 py-2 px-4 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={generateImage}
               type="button"
@@ -266,7 +268,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
             >
               <ImageIcon className="w-4 h-4" />
               Generate Image
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
