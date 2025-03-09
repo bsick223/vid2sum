@@ -11,7 +11,7 @@ function ManagePlan() {
         Manage your subscription and billing details here.
       </p>
 
-      <SchematicComponent componentId="cmpn_h6scVDKY9Dm" />
+      <SchematicComponent componentId="cmpn_JH2EPNbQBBT" />
       {/* <CountdownTimer/> */}
       <footer className="mt-8 text-center text-sm text-gray-500">
         <p className="mb-2">Need help with your subscription? Contact our support team at <span className="text-blue-600">brendansick@gmail.com</span></p>

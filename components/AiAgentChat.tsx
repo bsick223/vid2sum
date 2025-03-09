@@ -95,7 +95,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       id: `generate-script-${randomId}`,
       role: "user",
       content:
-        "Generate a step-by-step shooting script for this video that I can use on my own channel to produce a video that is similar to this one, don't do any other steps such as generating an image, just generate the script only!",
+        "You are tasked with generating a summary and bullet points for a video based on its transcript. Your goal is to help the user understand the main ideas and important topics discussed in the video.",
     };
 
     append(userMessage);
@@ -243,9 +243,9 @@ function AiAgentChat({ videoId }: { videoId: string }) {
             >
               <LetterText className="w-4 h-4" />
               {isScriptGenerationEnabled ? (
-                <span>Generate Script</span>
+                <span>Summarize</span>
               ) : (
-                <span>Upgrade to generate a script</span>
+                <span>Upgrade to generate a summary</span>
               )}
             </button>
             <button
