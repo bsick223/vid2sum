@@ -39,6 +39,23 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       },
     });
 
+  // silent prompting
+  const SYSTEM_MESSAGE_PREFIXES = ["generate-script-", "generate-title-"];
+
+  const displayMessages = messages.filter((message) => {
+    // Keep all assistant messages
+    if (message.role === "assistant") return true;
+
+    // For user messages, filter out those with IDs matching our system prefixes
+    if (message.role === "user") {
+      return !SYSTEM_MESSAGE_PREFIXES.some(
+        (prefix) => message.id && message.id.toString().startsWith(prefix)
+      );
+    }
+
+    return true;
+  });
+
   const isVideoAnalysisEnabled = useSchematicFlag(FeatureFlag.ANALYSE_VIDEO);
 
   const isScriptGenerationEnabled =
@@ -57,7 +74,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       messagesContainerRef.current.scrollTop =
         messagesContainerRef.current.scrollHeight;
     }
-  }, [messages]);
+  }, [displayMessages]);
 
   useEffect(() => {
     let toastId;
@@ -94,7 +111,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       id: `generate-script-${randomId}`,
       role: "user",
       content:
-        "You are tasked with generating a summary and bullet points for a video based on its transcript. Your goal is to help the user understand the main ideas and important topics discussed in the video.",
+        "You are tasked with generating a summary and bullet points for a video based on its transcript. Your goal is to help the user understand the main ideas and important topics discussed in the video.  Please use the transcript, and video details.  DO NOT use generateTitle for this summary.",
     };
 
     append(userMessage);
@@ -132,7 +149,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
         ref={messagesContainerRef}
       >
         <div className="space-y-6">
-          {messages.length === 0 && (
+          {displayMessages.length === 0 && (
             <div className="flex items-center justify-center h-full min-h-[200px]">
               <div className="text-center space-y-2">
                 <h3 className="text-lg font-medium text-gray-700">
@@ -145,7 +162,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
             </div>
           )}
 
-          {messages.map((m) => (
+          {displayMessages.map((m) => (
             <div
               key={m.id}
               className={`flex ${
