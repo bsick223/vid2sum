@@ -30,7 +30,7 @@ function TitleGenerations({ videoId }: { videoId: string }) {
         <Usage featureFlag={FeatureFlag.TITLE_GENERATIONS} title="Study Guides" />
       </div>
 
-      <div className="space-y-3 mt-4 max-h-[280px] overflow-y-auto">
+      {/* <div className="space-y-3 mt-4 max-h-[280px] overflow-y-auto">
         {titles?.map((title) => (
           <div
             key={title._id}
@@ -54,7 +54,7 @@ function TitleGenerations({ videoId }: { videoId: string }) {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       {/* No titles generated yet */}
       {!titles?.length && !!isTitleGenerationEnabled && (

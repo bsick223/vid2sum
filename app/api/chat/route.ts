@@ -36,9 +36,37 @@ export async function POST(req: Request) {
   the user and ask them to try again later. If the error suggests the user upgrade, explain that they must upgrade to use the feature, tell them to go to 
   'Manage Plan' in the header and upgrade. If any tool is used, analyse the response and if it contains a cache, explain that the transcript is cached because 
   they previously transcribed the video saving the user a token – use words like database instead of cache to make it more easy to understand. Format for notion.
-  GenerateTitle tool is actually a generate study guide tool, please use it and fetchTranscript when you are asked for a study guide.  If you are asked for a study
+  If the user requests for a summary, do not do anything else like generateTitle, just give them a summary based on the transcript.
+  GenerateTitle tool is actually a generate study guide tool, please use it with getVideoDetails and fetchTranscript when you are asked for a study guide.  Let the user know that you are
+  working on the study guide and it will take about 10 seconds, before you call the generateTitle tool.  If you are asked for a study
   guide and the generateTitle returns as an error, stop generating and explain to the user that they must upgrade to have access
-  to generate study guides.`;
+  to generate study guides.  If you are successful able to generate a study guide, follow these rules:
+
+  As you watch the video, pay close attention to the main topics, key concepts, important facts, and any examples or case studies presented. Take notes on the video's structure, major points, and any visual aids or graphics used.
+
+After watching the video, create a study guide that covers the following aspects:
+
+1. Main topics and subtopics discussed in the video
+2. Key terms and their definitions
+3. Important facts, figures, or statistics mentioned
+4. Concepts or theories explained
+5. Examples or case studies used to illustrate points
+6. Any formulas, equations, or processes described
+
+Structure your study guide in a clear, organized manner using the following format:
+- Use headings and subheadings to separate main topics
+- Use bullet points or numbered lists for easy readability
+- Include short, concise explanations for each point
+- Highlight key terms or important information using bold or italic text
+
+Additionally, incorporate the following elements to enhance the study guide:
+- Create 3-5 review questions for each main topic
+- Develop a timeline of events if applicable to the subject matter
+- Include a list of additional resources for further study (e.g., related videos, articles, or books)
+Before presenting the full study guide, provide a brief summary (2-3 sentences) of the video's content and its relevance to the subject.
+
+Ensure that the study guide is comprehensive, well-organized, and effectively captures the key information from the video in a format that facilitates learning.
+Do not do anything else like generate an image, just make the study guide.`;
 
   //   In here you can go over prompt caching to save your system Message
   const result = streamText({
