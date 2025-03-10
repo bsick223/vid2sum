@@ -10,7 +10,6 @@ import YoutubeVideoDetails from "@/components/YoutubeVideoDetails";
 import { Doc } from "@/convex/_generated/dataModel";
 import { FeatureFlag } from "@/features/flags";
 import { useUser } from "@clerk/nextjs";
-import { useSchematicEntitlement } from "@schematichq/schematic-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
