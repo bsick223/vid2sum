@@ -4,10 +4,10 @@ import { FeatureFlag } from "@/features/flags";
 import { useUser } from "@clerk/nextjs";
 import Usage from "./Usage";
 import { useSchematicEntitlement } from "@schematichq/schematic-react";
-import { Copy } from "lucide-react";
+// import { Copy } from "lucide-react";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 
 function TitleGenerations({ videoId }: { videoId: string }) {
   const { user } = useUser();
@@ -19,10 +19,10 @@ function TitleGenerations({ videoId }: { videoId: string }) {
     FeatureFlag.TITLE_GENERATIONS
   );
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    toast.success("Copied to clipboard!");
-  };
+  // const copyToClipboard = (text: string) => {
+  //   navigator.clipboard.writeText(text);
+  //   toast.success("Copied to clipboard!");
+  // };
 
   return (
     <div className="p-4 border border-gray-200 rounded-xl bg-white shadow-sm">
@@ -64,7 +64,7 @@ function TitleGenerations({ videoId }: { videoId: string }) {
         >
           <p className="text-gray-500">No Study Guides have been generated yet</p>
           <p className="text-sm text-gray-400 mt-1">
-            Generate Study Guides to see them appear here
+            {/* Generate Study Guides to see them appear here */}
           </p>
         </div>
       )}
