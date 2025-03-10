@@ -8,7 +8,7 @@ import {
   CheckCircle,
 } from "lucide-react";
 import YoutubeVideoForm from "@/components/YoutubeVideoForm";
-import ProductHuntEmbed from "@/components/ProductHuntEmbed";
+// import ProductHuntEmbed from "@/components/ProductHuntEmbed";
 import { ColorKey } from "@/types/types";
 import HowItWorksSection from "@/components/HowItWorksSection";
 
@@ -269,7 +269,7 @@ export default function Home() {
             >
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/iQaRDVUWgzM?si=pvz8JG_qMFhKoQ4u"
+                src="https://www.youtube.com/embed/KtkKHP-wuWs?si=pCRWgIhyENdt2_WR"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -316,9 +316,9 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="py-10 bg-white">
+      {/* <div className="py-10 bg-white">
         <ProductHuntEmbed />
-      </div>
+      </div> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-blue-600">
@@ -330,15 +330,7 @@ export default function Home() {
             Join thousands of students saving time and improving grades with
             Vid2Sum
           </p>
-          <div className="bg-white p-8 rounded-xl shadow-lg">
-            <h3 className="text-2xl font-bold text-blue-600 mb-6">
-              Try Vid2Sum Now
-            </h3>
-            <p className="text-gray-600 mb-6">
-              Enter any educational YouTube video URL to get started
-            </p>
-            <YoutubeVideoForm />
-          </div>
+          
         </div>
       </section>
 
@@ -346,11 +338,11 @@ export default function Home() {
       <footer className="py-12 px-4 md:px-0 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-6 md:mb-0">
+            {/* <div className="mb-6 md:mb-0">
               <h2 className="text-2xl font-bold text-blue-600">Vid2Sum</h2>
               <p className="text-gray-600">Watch Less, Learn More</p>
-            </div>
-            <div className="flex space-x-8">
+            </div> */}
+            {/* <div className="flex space-x-8">
               <a
                 href="#"
                 className="text-gray-600 hover:text-blue-600 transition-colors"
@@ -375,7 +367,7 @@ export default function Home() {
               >
                 Contact
               </a>
-            </div>
+            </div> */}
           </div>
           <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500">
             &copy; {new Date().getFullYear()} Vid2Sum. All rights reserved.
