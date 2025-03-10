@@ -10,6 +10,7 @@ import YoutubeVideoDetails from "@/components/YoutubeVideoDetails";
 import { Doc } from "@/convex/_generated/dataModel";
 import { FeatureFlag } from "@/features/flags";
 import { useUser } from "@clerk/nextjs";
+import { useSchematicEntitlement } from "@schematichq/schematic-react";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
@@ -48,6 +49,13 @@ function AnalysisPage() {
         <span className="text-sm text-gray-700">Loading...</span>
       </div>
     ) : !video ? (
+      (() => {
+      if (!sessionStorage.getItem("videoRefreshed")) {
+        console.log("Refreshing the page...");
+        sessionStorage.setItem("videoRefreshed", "true");
+        window.location.reload();
+      }
+      })(),
       <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-amber-50 border border-amber-200 rounded-full">
         <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
         <p className="text-sm text-amber-700">
