@@ -216,7 +216,7 @@ const ContactForm: React.FC = () => {
         </button>
         
         <p className="text-center text-xs text-gray-500 mt-4">
-          We'll get back to you as soon as possible.
+          We&apos;ll get back to you as soon as possible.
         </p>
       </form>
     </div>
