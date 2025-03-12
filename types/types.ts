@@ -28,4 +28,12 @@ export interface Feature {
   color: ColorKey;
   // Add any other properties your feature might have
 }
+
+export type ContactMessage = {
+  name: string;
+  email: string;
+  message: string;
+  createdAt: number;
+};
+
   

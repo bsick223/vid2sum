@@ -11,6 +11,7 @@ import YoutubeVideoForm from "@/components/YoutubeVideoForm";
 // import ProductHuntEmbed from "@/components/ProductHuntEmbed";
 import { ColorKey } from "@/types/types";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import ContactUsForm from "@/components/ContactUsForm";
 
 const features = [
   {
@@ -206,10 +207,8 @@ export default function Home() {
 
       {/* How it works Section - with Floating Cards */}
       {/* How it works Section - with Scroll Animations */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
-        
-      </section>
-      <HowItWorksSection/>
+      <section className="py-20 bg-gray-50 relative overflow-hidden"></section>
+      <HowItWorksSection />
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">
@@ -330,7 +329,11 @@ export default function Home() {
             Join thousands of students saving time and improving grades with
             Vid2Sum
           </p>
-          
+            <div className="flex justify-center">
+              <div className="w-full max-w-lg p-6 bg-white rounded-xl shadow-lg transition-shadow hover:shadow-xl">
+              <ContactUsForm />
+              </div>
+            </div>
         </div>
       </section>
 
