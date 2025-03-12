@@ -26,7 +26,13 @@ const formatToolInvocation = (part: ToolPart) => {
   return `🛠️ Tool Used: ${part.toolInvocation.toolName}`;
 };
 
-function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVideoLoading?: boolean }) {
+function AiAgentChat({
+  videoId,
+  isVideoLoading = true,
+}: {
+  videoId: string;
+  isVideoLoading?: boolean;
+}) {
   // Scrolling to Bottom Logic
   const bottomRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -59,11 +65,15 @@ function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVi
   const isVideoAnalysisEnabled = useSchematicFlag(FeatureFlag.ANALYSE_VIDEO);
 
   const isScriptGenerationEnabled =
-    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) && isVideoAnalysisEnabled && !isVideoLoading;
+    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) &&
+    isVideoAnalysisEnabled &&
+    !isVideoLoading;
   // Script generation's flag is always true, but the feature is only enabled if video analysis is enabled AND video is loaded
 
   const isTitleGenerationEnabled =
-    useSchematicFlag(FeatureFlag.TITLE_GENERATIONS) && isVideoAnalysisEnabled && !isVideoLoading;
+    useSchematicFlag(FeatureFlag.TITLE_GENERATIONS) &&
+    isVideoAnalysisEnabled &&
+    !isVideoLoading;
 
   useEffect(() => {
     if (bottomRef.current && messagesContainerRef.current) {
@@ -190,8 +200,8 @@ function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVi
                     )}
                   </div>
                 ) : (
-                  // User Message
-                  <div className="prose prose-sm max-w-non text-white">
+                  // User Message - Fix applied here
+                  <div className="prose prose-sm max-w-none text-white break-words whitespace-normal overflow-hidden overflow-wrap-anywhere">
                     <ReactMarkdown>{m.content}</ReactMarkdown>
                   </div>
                 )}
@@ -206,7 +216,19 @@ function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVi
       <QuestionMarkTooltip />
       <div className="border-t border-gray-100 p-4 bg-white">
         <div className="space-y-3">
-          <form onSubmit={handleSubmit} className="flex gap-2 items-start">
+          <form
+            onSubmit={(e) => {
+              handleSubmit(e);
+              // Cast e.target to HTMLFormElement before using querySelector
+              const form = e.target as HTMLFormElement;
+              const textarea = form.querySelector("textarea");
+              // Add null check before accessing style property
+              if (textarea) {
+                (textarea as HTMLTextAreaElement).style.height = "40px"; // Reset to the min-height value
+              }
+            }}
+            className="flex gap-2 items-start"
+          >
             <textarea
               className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[40px] max-h-[150px] resize-none overflow-y-auto"
               placeholder={
@@ -235,7 +257,7 @@ function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVi
                 isVideoLoading
               }
               className="px-4 py-2 bg-blue-500 text-white text-sm rounded-full hover:bg-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-1 hover:cursor-pointer active:scale-95 active:bg-blue-700 active:shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
-              >
+            >
               {status === "streaming"
                 ? "AI is replying..."
                 : status === "submitted"
