@@ -22,6 +22,9 @@ function AnalysisPage() {
     undefined
   );
 
+  // Determine if the video is loading
+  const isVideoLoading = video === undefined;
+
   useEffect(() => {
     if (!user?.id) return;
 
@@ -95,10 +98,7 @@ function AnalysisPage() {
           {/* Youtube Video Details */}
           <YoutubeVideoDetails videoId={videoId} />
 
-          {/* Thumbnail Generation - redacted*/}
-          {/* <ThumbnailGeneration videoId={videoId} /> */}
-
-          {/* Title Generation - redacted*/}
+          {/* Study Guide Generation labeled titleGenerations*/}
           <TitleGenerations videoId={videoId} />
 
           {/* Transcription */}
@@ -107,8 +107,8 @@ function AnalysisPage() {
 
         {/* Right Side */}
         <div className="order-1 lg:order-2 lg:sticky lg:top-20 h-[h500px] md:h-[calc(100vh-6rem)]">
-          {/* Ai Agent Chat Section */}
-          <AiAgentChat videoId={videoId} />
+          {/* Ai Agent Chat Section - Pass the video loading state */}
+          <AiAgentChat videoId={videoId} isVideoLoading={isVideoLoading} />
         </div>
       </div>
     </div>

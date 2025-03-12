@@ -26,7 +26,7 @@ const formatToolInvocation = (part: ToolPart) => {
   return `🛠️ Tool Used: ${part.toolInvocation.toolName}`;
 };
 
-function AiAgentChat({ videoId }: { videoId: string }) {
+function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVideoLoading?: boolean }) {
   // Scrolling to Bottom Logic
   const bottomRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
@@ -59,15 +59,11 @@ function AiAgentChat({ videoId }: { videoId: string }) {
   const isVideoAnalysisEnabled = useSchematicFlag(FeatureFlag.ANALYSE_VIDEO);
 
   const isScriptGenerationEnabled =
-    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) && isVideoAnalysisEnabled;
-  // Script generation's flag is always true, but the feature is only enabled if video analysis is enabled
-
-  // const isImageGenerationEnabled = useSchematicFlag(
-  //   FeatureFlag.IMAGE_GENERATION
-  // );
+    useSchematicFlag(FeatureFlag.SCRIPT_GENERATION) && isVideoAnalysisEnabled && !isVideoLoading;
+  // Script generation's flag is always true, but the feature is only enabled if video analysis is enabled AND video is loaded
 
   const isTitleGenerationEnabled =
-    useSchematicFlag(FeatureFlag.TITLE_GENERATIONS) && isVideoAnalysisEnabled;
+    useSchematicFlag(FeatureFlag.TITLE_GENERATIONS) && isVideoAnalysisEnabled && !isVideoLoading;
 
   useEffect(() => {
     if (bottomRef.current && messagesContainerRef.current) {
@@ -116,16 +112,6 @@ function AiAgentChat({ videoId }: { videoId: string }) {
 
     append(userMessage);
   };
-
-  // const generateImage = async () => {
-  //   const randomId = Math.random().toString(36).substring(2, 15);
-  //   const userMessage: Message = {
-  //     id: `generate-image-${randomId}`,
-  //     role: "user",
-  //     content: "Generate a thumbnail for this video",
-  //   };
-  //   append(userMessage);
-  // };
 
   const generateTitle = async () => {
     const randomId = Math.random().toString(36).substring(2, 15);
@@ -226,6 +212,8 @@ function AiAgentChat({ videoId }: { videoId: string }) {
               placeholder={
                 !isVideoAnalysisEnabled
                   ? "Upgrade to ask anything about your video..."
+                  : isVideoLoading
+                  ? "Loading video..."
                   : "Ask anything about your video..."
               }
               value={input}
@@ -236,21 +224,25 @@ function AiAgentChat({ videoId }: { videoId: string }) {
                 target.style.height = `${target.scrollHeight}px`;
               }}
               rows={1}
+              disabled={!isVideoAnalysisEnabled || isVideoLoading}
             />
             <Button
               type="submit"
               disabled={
-              status === "streaming" ||
-              status === "submitted" ||
-              !isVideoAnalysisEnabled
+                status === "streaming" ||
+                status === "submitted" ||
+                !isVideoAnalysisEnabled ||
+                isVideoLoading
               }
               className="px-4 py-2 bg-blue-500 text-white text-sm rounded-full hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-1 hover:cursor-pointer"
             >
               {status === "streaming"
-              ? "AI is replying..."
-              : status === "submitted"
-              ? "AI is thinking..."
-              : "Send"}
+                ? "AI is replying..."
+                : status === "submitted"
+                ? "AI is thinking..."
+                : isVideoLoading
+                ? "Loading..."
+                : "Send"}
             </Button>
           </form>
 
@@ -262,7 +254,9 @@ function AiAgentChat({ videoId }: { videoId: string }) {
               disabled={!isScriptGenerationEnabled}
             >
               <LetterText className="w-4 h-4" />
-              {isScriptGenerationEnabled ? (
+              {isVideoLoading ? (
+                <span>Loading...</span>
+              ) : isScriptGenerationEnabled ? (
                 <span>Summarize</span>
               ) : (
                 <span>Upgrade to generate a summary</span>
@@ -275,18 +269,8 @@ function AiAgentChat({ videoId }: { videoId: string }) {
               disabled={!isTitleGenerationEnabled}
             >
               <PenIcon className="w-4 h-4" />
-              Generate Study Guide
+              {isVideoLoading ? "Loading..." : "Generate Study Guide"}
             </button>
-
-            {/* <button
-              className="text-xs xl:text-sm w-full flex items-center justify-center gap-2 py-2 px-4 bg-gray-100 hover:bg-gray-200 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              onClick={generateImage}
-              type="button"
-              disabled={!isImageGenerationEnabled}
-            >
-              <ImageIcon className="w-4 h-4" />
-              Generate Image
-            </button> */}
           </div>
         </div>
       </div>
