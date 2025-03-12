@@ -234,8 +234,8 @@ function AiAgentChat({ videoId, isVideoLoading = true }: { videoId: string; isVi
                 !isVideoAnalysisEnabled ||
                 isVideoLoading
               }
-              className="px-4 py-2 bg-blue-500 text-white text-sm rounded-full hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-1 hover:cursor-pointer"
-            >
+              className="px-4 py-2 bg-blue-500 text-white text-sm rounded-full hover:bg-blue-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed mt-1 hover:cursor-pointer active:scale-95 active:bg-blue-700 active:shadow-inner focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50"
+              >
               {status === "streaming"
                 ? "AI is replying..."
                 : status === "submitted"
