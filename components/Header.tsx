@@ -44,7 +44,7 @@ function Header() {
                 before:transition-transform before:duration-1000
                 before:pointer-events-none
                 hover:shadow-md
-                active:scale-95 active:shadow-inner"
+                active:scale-95 active:shadow-inner hover:cursor-pointer"
                 >
                   Manage Plan
                 </Button>
@@ -91,7 +91,8 @@ function Header() {
                 before:translate-x-[-200%] hover:before:translate-x-[200%]
                 before:transition-transform before:duration-1000
                 before:pointer-events-none
-                hover:shadow-md"
+                hover:shadow-md
+                hover:cursor-pointer"
                 >
                   Sign In
                 </Button>
