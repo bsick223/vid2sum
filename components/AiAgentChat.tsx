@@ -220,14 +220,9 @@ function AiAgentChat({ videoId }: { videoId: string }) {
       <QuestionMarkTooltip />
       <div className="border-t border-gray-100 p-4 bg-white">
         <div className="space-y-3">
-          <form
-            onSubmit={handleSubmit}
-            className="flex gap-2 items-center"
-          ></form>
-          <form onSubmit={handleSubmit} className="flex gap-2">
-            <input
-              className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              type="text"
+          <form onSubmit={handleSubmit} className="flex gap-2 items-start">
+            <textarea
+              className="flex-1 px-4 py-2 text-sm border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent min-h-[40px] max-h-[150px] resize-none overflow-y-auto"
               placeholder={
                 !isVideoAnalysisEnabled
                   ? "Upgrade to ask anything about your video..."
@@ -235,6 +230,12 @@ function AiAgentChat({ videoId }: { videoId: string }) {
               }
               value={input}
               onChange={handleInputChange}
+              onInput={(e) => {
+                const target = e.target as HTMLTextAreaElement;
+                target.style.height = "auto";
+                target.style.height = `${target.scrollHeight}px`;
+              }}
+              rows={1}
             />
             <Button
               type="submit"
@@ -243,7 +244,7 @@ function AiAgentChat({ videoId }: { videoId: string }) {
                 status === "submitted" ||
                 !isVideoAnalysisEnabled
               }
-              className="px-4 py-2 bg-blue-500 text-white text-sm rounded-full hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-4 py-2 bg-blue-500 text-white text-sm rounded-full hover:bg-blue-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed mt-1"
             >
               {status === "streaming"
                 ? "AI is replying..."
