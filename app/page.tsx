@@ -296,6 +296,24 @@ export default function Home() {
                 className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition"
               >
                 <div className="text-4xl mb-4">{testimonial.emoji}</div>
+                {/* Star Rating */}
+                <div className="flex text-yellow-400 mb-3">
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+                  </svg>
+                </div>
                 <p className="text-gray-700 mb-6">
                   &quot;{testimonial.feedback}&quot;
                 </p>
@@ -314,7 +332,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* <div className="py-10 bg-white">
         <ProductHuntEmbed />
       </div> */}
@@ -329,11 +346,11 @@ export default function Home() {
             Join thousands of students saving time and improving grades with
             Vid2Sum
           </p>
-            <div className="flex justify-center">
-              <div className="w-full max-w-lg p-6 bg-white rounded-xl shadow-lg transition-shadow hover:shadow-xl">
+          <div className="flex justify-center">
+            <div className="w-full max-w-lg p-6 bg-white rounded-xl shadow-lg transition-shadow hover:shadow-xl">
               <ContactUsForm />
-              </div>
             </div>
+          </div>
         </div>
       </section>
 

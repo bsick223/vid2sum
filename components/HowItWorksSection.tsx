@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 // Import your icon components here, for example:
-import { Link, FileText, MessageSquare } from 'lucide-react';
+import { Link, FileText, MessageSquare, Wrench } from 'lucide-react';
 
 // Define your steps data
 const steps = [
@@ -13,9 +13,9 @@ const steps = [
     icon: Link
   },
   {
-    title: "Get AI Summary",
-    description: "Our AI analyzes the video and creates concise notes with key points",
-    icon: FileText
+    title: "Tools Used",
+    description: "Our AI analyzes the video and collects all the information about the video",
+    icon: Wrench
   },
   {
     title: "Ask Questions",
