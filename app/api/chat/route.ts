@@ -44,7 +44,9 @@ export async function POST(req: Request) {
   GenerateTitle tool is actually a generate study guide tool, please use it with getVideoDetails and fetchTranscript when you are asked for a study guide.  Let the user know that you are
   working on the study guide and it will take about 10 seconds, before you call the generateTitle tool.  If you are asked for a study
   guide and the generateTitle returns as an error, stop generating and explain to the user that they must upgrade to have access
-  to generate study guides, do not do anything else like generating a summary, just give them instructions on upgrading their plan.  If you are successfully able to generate a study guide, follow these rules:
+  to generate study guides, do not do anything else like generating a summary, just give them instructions on upgrading their plan.  
+  
+  If you are successfully able to generate a study guide, follow these rules:
 
   As you watch the video, pay close attention to the main topics, key concepts, important facts, and any examples or case studies presented. Take notes on the video's structure, major points, and any visual aids or graphics used.
 
