@@ -13,25 +13,30 @@ export default function ReviewsSection() {
   const { isSignedIn } = useAuth();
   const { openSignIn } = useClerk();
 
-  // Wrap in try/catch to handle backfilling error
-  let canReview = true;
-  let reviewStatusReason = "";
+  // Always call the hook unconditionally
+  const canLeaveReviewQuery = useQuery(api.reviews.canLeaveReview);
 
-  try {
-    const canLeaveReviewResult = useQuery(api.reviews.canLeaveReview);
-    if (canLeaveReviewResult && !canLeaveReviewResult.canLeave) {
-      canReview = false;
-      reviewStatusReason =
-        canLeaveReviewResult.reason || "Cannot leave review at this time";
+  // Handle errors after the hook call
+  const canLeaveReviewInfo = (() => {
+    try {
+      if (canLeaveReviewQuery && !canLeaveReviewQuery.canLeave) {
+        return {
+          canReview: false,
+          reason:
+            canLeaveReviewQuery.reason || "Cannot leave review at this time",
+        };
+      }
+      return { canReview: true, reason: "" };
+    } catch (error) {
+      console.warn(
+        "Review permission check failed, defaulting to allowed:",
+        error
+      );
+      return { canReview: true, reason: "" };
     }
-  } catch (error) {
-    // During index backfilling, default to allowing reviews
-    console.warn(
-      "Review permission check failed, defaulting to allowed:",
-      error
-    );
-    canReview = true;
-  }
+  })();
+
+  const { canReview, reason: reviewStatusReason } = canLeaveReviewInfo;
 
   const handleReviewButtonClick = () => {
     if (!isSignedIn) {
@@ -79,7 +84,7 @@ export default function ReviewsSection() {
                 }
               >
                 <MessageSquareQuote className="mr-2 h-5 w-5" />
-                {isSignedIn ? "Leave a Review" : "Sign in to Review"}
+                {isSignedIn ? "Leave a Review" : "Leave a Review"}
               </button>
             ) : (
               <div className="max-w-lg mx-auto">

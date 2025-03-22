@@ -3,6 +3,18 @@
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { Star } from "lucide-react";
+import { Id } from "@/convex/_generated/dataModel";
+
+// Define a proper type for review object
+interface Review {
+  _id: Id<"reviews">;
+  name: string;
+  rating: number;
+  comment: string;
+  createdAt: number;
+  userId?: string;
+  userEmail?: string;
+}
 
 export default function ReviewsDisplay() {
   const reviews = useQuery(api.reviews.getReviews) || [];
@@ -42,7 +54,7 @@ export default function ReviewsDisplay() {
 }
 
 // Extracted ReviewCard component for reuse
-function ReviewCard({ review }: { review: any }) {
+function ReviewCard({ review }: { review: Review }) {
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
       <div className="flex items-center justify-between mb-3">

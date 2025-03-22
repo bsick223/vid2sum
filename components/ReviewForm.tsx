@@ -8,6 +8,12 @@ import { toast } from "sonner";
 import { validateReview } from "@/lib/validation";
 import { useAuth, useUser } from "@clerk/nextjs";
 
+// Define a type for error objects
+type ErrorWithMessage = {
+  message?: string;
+  [key: string]: unknown;
+};
+
 export default function ReviewForm() {
   const [name, setName] = useState("");
   const [rating, setRating] = useState(5);
@@ -18,14 +24,18 @@ export default function ReviewForm() {
   const { isSignedIn, isLoaded } = useAuth();
   const { user } = useUser();
 
-  // Handle canLeaveReview with error handling for backfilling
-  let canLeaveReviewResult = null;
-  try {
-    canLeaveReviewResult = useQuery(api.reviews.canLeaveReview);
-  } catch (error) {
-    console.warn("Review permission check failed:", error);
-    // Continue without the review check during backfilling
-  }
+  // Always call useQuery unconditionally at the top level
+  const canLeaveReviewQuery = useQuery(api.reviews.canLeaveReview);
+
+  // Then handle any errors or process results after the hook is called
+  const canLeaveReviewResult = (() => {
+    try {
+      return canLeaveReviewQuery;
+    } catch (err) {
+      console.warn("Review permission check failed:", err);
+      return null;
+    }
+  })();
 
   const addReview = useMutation(api.reviews.addReview);
 
@@ -88,7 +98,8 @@ export default function ReviewForm() {
       setName("");
       setComment("");
       setRating(5);
-    } catch (error: any) {
+    } catch (err: unknown) {
+      const error = err as ErrorWithMessage;
       toast.error(
         error.message || "Failed to submit review. Please try again."
       );
