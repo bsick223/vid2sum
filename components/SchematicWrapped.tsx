@@ -41,11 +41,12 @@ const SchematicWrapped = ({ children }: { children: React.ReactNode }) => {
           if (!result.success && result.error) {
             // Log error but don't block the user experience
             console.error("Failed to subscribe to newsletter:", result.error);
-          } else if (result.updated || result.alreadySubscribed) {
-            // Successfully updated an existing subscription or confirmed already subscribed
-            console.log(
-              "User already subscribed to newsletter or was updated successfully"
-            );
+          } else if (result.alreadySubscribed) {
+            // Successfully confirmed already subscribed
+            console.log("User already subscribed to newsletter");
+          } else if (result.success) {
+            // Successfully subscribed a new user
+            console.log("User successfully subscribed to newsletter");
           }
         } catch (error) {
           // Catch any unexpected errors but don't affect user experience
