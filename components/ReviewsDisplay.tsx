@@ -64,7 +64,7 @@ function ReviewCard({ review }: { review: Review }) {
   };
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow flex flex-col h-full">
+    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow flex flex-col h-full relative">
       <div className="flex flex-col items-center mb-3">
         <h4 className="font-medium mb-2">{review.name}</h4>
         <div className="flex">
@@ -91,29 +91,24 @@ function ReviewCard({ review }: { review: Review }) {
             {review.comment}
           </p>
         </div>
+      </div>
+
+      <div className="mt-3 text-xs text-gray-400 flex justify-between items-center">
+        <span>{new Date(review.createdAt).toLocaleDateString()}</span>
 
         {needsExpansion && (
           <button
             onClick={toggleExpand}
-            className="mt-1 text-xs text-blue-600 hover:text-blue-800 flex items-center"
+            className="p-1 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+            aria-label={expanded ? "Collapse review" : "Expand review"}
           >
             {expanded ? (
-              <>
-                <span>Show less</span>
-                <ChevronUp className="ml-1 h-3 w-3" />
-              </>
+              <ChevronUp className="h-4 w-4 text-gray-600" />
             ) : (
-              <>
-                <span>Read more</span>
-                <ChevronDown className="ml-1 h-3 w-3" />
-              </>
+              <ChevronDown className="h-4 w-4 text-gray-600" />
             )}
           </button>
         )}
-      </div>
-
-      <div className="mt-3 text-xs text-gray-400">
-        {new Date(review.createdAt).toLocaleDateString()}
       </div>
     </div>
   );
