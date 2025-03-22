@@ -38,15 +38,29 @@ const SchematicWrapped = ({ children }: { children: React.ReactNode }) => {
       const handleMailchimpSubscription = async () => {
         try {
           const result = await subscribeUserToMailchimp();
-          if (!result.success) {
+          if (!result.success && result.error) {
+            // Log error but don't block the user experience
             console.error("Failed to subscribe to newsletter:", result.error);
+          } else if (result.updated || result.alreadySubscribed) {
+            // Successfully updated an existing subscription or confirmed already subscribed
+            console.log(
+              "User already subscribed to newsletter or was updated successfully"
+            );
           }
         } catch (error) {
-          console.error("Error subscribing to newsletter:", error);
+          // Catch any unexpected errors but don't affect user experience
+          console.error("Error in Mailchimp subscription process:", error);
+          // Continue with normal app flow despite the error
         }
       };
 
-      handleMailchimpSubscription();
+      // Handle the Mailchimp subscription in the background
+      // Using a timeout to prevent blocking the main app functionality
+      setTimeout(() => {
+        handleMailchimpSubscription().catch((err) => {
+          console.error("Unhandled Mailchimp subscription error:", err);
+        });
+      }, 100);
     }
   }, [user, identify]);
 

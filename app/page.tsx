@@ -127,10 +127,10 @@ export default function Home() {
                     #1 AI Learning Assistant for students
                   </span>
                   <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold  text-blue-600 leading-tight">
-                    Watch Less,
+                    YouTube Video
                     <br />
                     <span className="text-3xl md:text-5xl lg:text-6xl font-bold  text-gray-900 leading-tight ">
-                      Learn More
+                      Summary AI
                     </span>
                   </h1>
                 </div>

@@ -54,21 +54,50 @@ export async function subscribeUserToMailchimp() {
       lastName: user.lastName ?? "",
     });
 
-    const response = await mailchimp.lists.addListMember(
-      MAILCHIMP_LIST_ID as string,
-      {
-        email_address: email,
-        status: "subscribed", // Changed to pending for double opt-in
-        merge_fields: {
-          FNAME: user.firstName ?? "",
-          LNAME: user.lastName ?? "",
-        },
-        tags: ["new-subscriber"],
-      }
-    );
+    const memberData = {
+      email_address: email,
+      status: "subscribed",
+      merge_fields: {
+        FNAME: user.firstName ?? "",
+        LNAME: user.lastName ?? "",
+      },
+      tags: ["new-subscriber"],
+    };
 
-    console.log("Mailchimp response:", response);
-    return { success: true, data: response };
+    try {
+      // First try to add as a new member
+      const response = await mailchimp.lists.addListMember(
+        MAILCHIMP_LIST_ID as string,
+        memberData
+      );
+      console.log("Mailchimp response:", response);
+      return { success: true, data: response };
+    } catch (addError: any) {
+      // If member already exists, update them instead
+      if (
+        addError.status === 400 &&
+        addError.response?.body?.title === "Member Exists"
+      ) {
+        // Get the MD5 hash of the lowercase email for the API
+        const emailHash = require("crypto")
+          .createHash("md5")
+          .update(email.toLowerCase())
+          .digest("hex");
+
+        // Update the existing member instead
+        const updateResponse = await mailchimp.lists.setListMember(
+          MAILCHIMP_LIST_ID as string,
+          emailHash,
+          memberData
+        );
+
+        console.log("Mailchimp update response:", updateResponse);
+        return { success: true, data: updateResponse, updated: true };
+      }
+
+      // If it's not a Member Exists error, rethrow it
+      throw addError;
+    }
   } catch (error: any) {
     // Log the detailed error
     console.error("Detailed Mailchimp error:", {
