@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { useQuery } from "convex/react";
 import { api } from "@/convex/_generated/api";
-import { Star } from "lucide-react";
+import { Star, ChevronDown, ChevronUp } from "lucide-react";
 import { Id } from "@/convex/_generated/dataModel";
 
 // Define a proper type for review object
@@ -55,10 +56,17 @@ export default function ReviewsDisplay() {
 
 // Extracted ReviewCard component for reuse
 function ReviewCard({ review }: { review: Review }) {
+  const [expanded, setExpanded] = useState(false);
+  const needsExpansion = review.comment.length > 150; // Arbitrary threshold to check if text is long
+
+  const toggleExpand = () => {
+    setExpanded(!expanded);
+  };
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
-      <div className="flex items-center justify-between mb-3">
-        <h4 className="font-medium">{review.name}</h4>
+    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow flex flex-col h-full">
+      <div className="flex flex-col items-center mb-3">
+        <h4 className="font-medium mb-2">{review.name}</h4>
         <div className="flex">
           {[...Array(5)].map((_, i) => (
             <Star
@@ -72,7 +80,38 @@ function ReviewCard({ review }: { review: Review }) {
           ))}
         </div>
       </div>
-      <p className="text-gray-600 line-clamp-3">{review.comment}</p>
+
+      <div className="relative flex-grow">
+        <div className={`${expanded ? "max-h-96 overflow-y-auto" : ""}`}>
+          <p
+            className={`text-gray-600 ${
+              expanded ? "" : "line-clamp-3"
+            } break-words whitespace-normal overflow-hidden`}
+          >
+            {review.comment}
+          </p>
+        </div>
+
+        {needsExpansion && (
+          <button
+            onClick={toggleExpand}
+            className="mt-1 text-xs text-blue-600 hover:text-blue-800 flex items-center"
+          >
+            {expanded ? (
+              <>
+                <span>Show less</span>
+                <ChevronUp className="ml-1 h-3 w-3" />
+              </>
+            ) : (
+              <>
+                <span>Read more</span>
+                <ChevronDown className="ml-1 h-3 w-3" />
+              </>
+            )}
+          </button>
+        )}
+      </div>
+
       <div className="mt-3 text-xs text-gray-400">
         {new Date(review.createdAt).toLocaleDateString()}
       </div>

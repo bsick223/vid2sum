@@ -145,10 +145,10 @@ export default function ReviewForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="block text-sm font-medium text-gray-700 mb-1 text-center">
             Rating <span className="text-red-500">*</span>
           </label>
-          <div className="flex gap-2">
+          <div className="flex gap-2 justify-center">
             {[1, 2, 3, 4, 5].map((value) => (
               <button
                 key={value}
