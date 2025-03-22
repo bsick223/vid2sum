@@ -102,7 +102,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white font-sans">
       {/* Hero Section - Floating Cards */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden">
+      <section className="py-12 md:py-20 bg-gray-50 relative overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div
@@ -118,86 +118,86 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto">
             {/* Two-column layout */}
-            <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
+            <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-16">
               {/* Content column */}
-              <div className="lg:w-1/2 space-y-8">
+              <div className="w-full lg:w-1/2 space-y-6 md:space-y-8">
                 <div>
-                  <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-medium mb-4">
+                  <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-medium mb-3 md:mb-4">
                     AI-Powered Learning Assistant
                   </span>
-                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
                     Watch Less, <br />
                     <span className="text-blue-600">Learn More</span>
                   </h1>
                 </div>
 
-                <p className="text-xl text-gray-600">
+                <p className="text-lg md:text-xl text-gray-600">
                   Summarize videos and ask follow up questions
                 </p>
 
-                <div className="pt-4">
+                <div className="pt-2 md:pt-4">
                   <YoutubeVideoForm />
                 </div>
 
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <div className="inline-flex items-center text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-blue-500 mr-2" />
+                <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
+                  <div className="inline-flex items-center text-sm md:text-base text-gray-700">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2" />
                     <span>Save 70% study time</span>
                   </div>
-                  <div className="inline-flex items-center text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-blue-500 mr-2" />
+                  <div className="inline-flex items-center text-sm md:text-base text-gray-700">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2" />
                     <span>Better grades</span>
                   </div>
-                  <div className="inline-flex items-center text-gray-700">
-                    <CheckCircle className="w-5 h-5 text-blue-500 mr-2" />
+                  <div className="inline-flex items-center text-sm md:text-base text-gray-700">
+                    <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2" />
                     <span>Made for students</span>
                   </div>
                 </div>
               </div>
 
               {/* Visual column - floating cards */}
-              <div className="lg:w-1/2 relative">
-                <div className="absolute top-4 left-4 right-4 bottom-4 bg-blue-100 rounded-2xl transform rotate-3"></div>
+              <div className="w-full lg:w-1/2 relative mt-8 lg:mt-0">
+                <div className="absolute top-4 left-4 right-4 bottom-4 bg-blue-100 rounded-2xl transform rotate-3 hidden sm:block"></div>
 
-                <div className="bg-white p-8 rounded-2xl shadow-xl relative z-10 transform -rotate-2 border border-gray-100">
-                  <h3 className="text-xl font-bold text-blue-600 mb-4">
+                <div className="bg-white p-4 md:p-8 rounded-2xl shadow-xl relative z-10 transform sm:-rotate-2 border border-gray-100">
+                  <h3 className="text-lg md:text-xl font-bold text-blue-600 mb-3 md:mb-4">
                     Video Summary
                   </h3>
 
-                  <div className="space-y-3">
-                    <div className="h-4 bg-gray-100 rounded w-full"></div>
-                    <div className="h-4 bg-gray-100 rounded w-11/12"></div>
-                    <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+                  <div className="space-y-2 md:space-y-3">
+                    <div className="h-3 md:h-4 bg-gray-100 rounded w-full"></div>
+                    <div className="h-3 md:h-4 bg-gray-100 rounded w-11/12"></div>
+                    <div className="h-3 md:h-4 bg-gray-100 rounded w-3/4"></div>
                   </div>
 
-                  <h4 className="text-lg font-bold text-gray-800 mt-6 mb-3">
+                  <h4 className="text-base md:text-lg font-bold text-gray-800 mt-4 md:mt-6 mb-2 md:mb-3">
                     Key Points:
                   </h4>
-                  <div className="space-y-3">
+                  <div className="space-y-2 md:space-y-3">
                     <div className="flex items-start">
-                      <div className="h-4 w-4 mt-1 bg-blue-100 rounded-full flex-shrink-0"></div>
-                      <div className="h-4 bg-gray-100 rounded w-5/6 ml-2"></div>
+                      <div className="h-3 w-3 md:h-4 md:w-4 mt-1 bg-blue-100 rounded-full flex-shrink-0"></div>
+                      <div className="h-3 md:h-4 bg-gray-100 rounded w-5/6 ml-2"></div>
                     </div>
                     <div className="flex items-start">
-                      <div className="h-4 w-4 mt-1 bg-blue-100 rounded-full flex-shrink-0"></div>
-                      <div className="h-4 bg-gray-100 rounded w-4/6 ml-2"></div>
+                      <div className="h-3 w-3 md:h-4 md:w-4 mt-1 bg-blue-100 rounded-full flex-shrink-0"></div>
+                      <div className="h-3 md:h-4 bg-gray-100 rounded w-4/6 ml-2"></div>
                     </div>
                     <div className="flex items-start">
-                      <div className="h-4 w-4 mt-1 bg-blue-100 rounded-full flex-shrink-0"></div>
-                      <div className="h-4 bg-gray-100 rounded w-5/6 ml-2"></div>
+                      <div className="h-3 w-3 md:h-4 md:w-4 mt-1 bg-blue-100 rounded-full flex-shrink-0"></div>
+                      <div className="h-3 md:h-4 bg-gray-100 rounded w-5/6 ml-2"></div>
                     </div>
                   </div>
                 </div>
 
-                <div className="absolute top-32 -right-4 bg-white p-4 rounded-lg shadow-lg w-40 transform rotate-6 border border-gray-100">
-                  <div className="h-3 bg-blue-100 rounded w-3/4 mb-2"></div>
-                  <div className="h-3 bg-gray-100 rounded w-full"></div>
+                <div className="absolute top-32 -right-4 bg-white p-3 md:p-4 rounded-lg shadow-lg w-32 md:w-40 transform rotate-6 border border-gray-100 hidden sm:block">
+                  <div className="h-2 md:h-3 bg-blue-100 rounded w-3/4 mb-2"></div>
+                  <div className="h-2 md:h-3 bg-gray-100 rounded w-full"></div>
                 </div>
 
-                <div className="absolute -bottom-4 left-10 bg-white p-4 rounded-lg shadow-lg w-48 transform -rotate-3 border border-gray-100">
-                  <div className="h-3 bg-blue-100 rounded w-2/3 mb-2"></div>
-                  <div className="h-3 bg-gray-100 rounded w-full"></div>
-                  <div className="h-3 bg-gray-100 rounded w-4/5 mt-2"></div>
+                <div className="absolute -bottom-4 left-10 bg-white p-3 md:p-4 rounded-lg shadow-lg w-36 md:w-48 transform -rotate-3 border border-gray-100 hidden sm:block">
+                  <div className="h-2 md:h-3 bg-blue-100 rounded w-2/3 mb-2"></div>
+                  <div className="h-2 md:h-3 bg-gray-100 rounded w-full"></div>
+                  <div className="h-2 md:h-3 bg-gray-100 rounded w-4/5 mt-2"></div>
                 </div>
               </div>
             </div>
@@ -207,44 +207,46 @@ export default function Home() {
 
       {/* How it works Section - with Floating Cards */}
       {/* How it works Section - with Scroll Animations */}
-      <section className="py-20 bg-gray-50 relative overflow-hidden"></section>
+      <section className="py-12 md:py-20 bg-gray-50 relative overflow-hidden"></section>
       <HowItWorksSection />
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-12 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-4 text-blue-600">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 md:mb-4 text-blue-600">
             Features Students Love
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto">
             Tools designed to make your academic life easier
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className={`p-6 rounded-xl border-2 shadow-sm ${
+                  className={`p-4 md:p-6 rounded-xl border-2 shadow-sm ${
                     colorMap[feature.color as ColorKey]
                   } transition-all duration-300`}
                 >
-                  <div className="flex items-start mb-4">
+                  <div className="flex items-start mb-3 md:mb-4">
                     <div
-                      className={`w-10 h-10 rounded-full flex items-center justify-center mr-3 bg-white shadow-sm`}
+                      className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center mr-2 md:mr-3 bg-white shadow-sm`}
                     >
                       <Icon
-                        className={`w-5 h-5 ${
+                        className={`w-4 h-4 md:w-5 md:h-5 ${
                           iconColorMap[feature.color as ColorKey]
                         }`}
                       />
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-800 pt-1">
+                    <h3 className="text-base md:text-lg font-semibold text-gray-800 pt-1">
                       {feature.title}
                     </h3>
                   </div>
-                  <p className="text-gray-600">{feature.description}</p>
+                  <p className="text-sm md:text-base text-gray-600">
+                    {feature.description}
+                  </p>
                 </div>
               );
             })}
@@ -253,18 +255,18 @@ export default function Home() {
       </section>
 
       {/* YouTube Demo Section */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-4 text-blue-600">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 md:mb-4 text-blue-600">
             See How It Works
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto">
             Watch how Vid2Sum helps students master course material in less time
           </p>
           <div className="flex justify-center">
             <div
-              className="overflow-hidden rounded-2xl shadow-lg"
-              style={{ width: "100%", maxWidth: "900px", height: "506px" }}
+              className="overflow-hidden rounded-2xl shadow-lg w-full"
+              style={{ maxWidth: "900px", aspectRatio: "16/9" }}
             >
               <iframe
                 className="w-full h-full"
@@ -280,50 +282,67 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section className="py-12 md:py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="container mx-auto px-4 max-w-6xl">
-          <h2 className="text-3xl font-bold text-center mb-4 text-blue-600">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-3 md:mb-4 text-blue-600">
             What Students Are Saying
           </h2>
-          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-gray-600 mb-8 md:mb-12 max-w-2xl mx-auto">
             Join thousands of students who are acing their classes with Vid2Sum
           </p>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition"
+                className="bg-white p-5 md:p-6 rounded-xl shadow-md hover:shadow-lg transition"
               >
-                <div className="text-4xl mb-4">{testimonial.emoji}</div>
+                <div className="text-3xl md:text-4xl mb-3 md:mb-4">
+                  {testimonial.emoji}
+                </div>
                 {/* Star Rating */}
                 <div className="flex text-yellow-400 mb-3">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 fill-current"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 fill-current"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 fill-current"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 fill-current"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 fill-current"
+                    viewBox="0 0 24 24"
+                  >
                     <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
                   </svg>
                 </div>
-                <p className="text-gray-700 mb-6">
+                <p className="text-sm md:text-base text-gray-700 mb-4 md:mb-6">
                   &quot;{testimonial.feedback}&quot;
                 </p>
                 <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-100 flex items-center justify-center mr-2 md:mr-3">
                     <span className="font-bold text-blue-600">
                       {testimonial.name.charAt(0)}
                     </span>
                   </div>
-                  <h3 className="font-medium text-gray-800">
+                  <h3 className="text-sm md:text-base font-medium text-gray-800">
                     {testimonial.name}
                   </h3>
                 </div>
@@ -337,17 +356,17 @@ export default function Home() {
       </div> */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-blue-600">
+      <section className="py-12 md:py-20 bg-blue-600">
         <div className="container mx-auto px-4 max-w-4xl text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
             Ready to Study Smarter?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-blue-100 mb-6 md:mb-10 max-w-2xl mx-auto">
             Join thousands of students saving time and improving grades with
             Vid2Sum
           </p>
           <div className="flex justify-center">
-            <div className="w-full max-w-lg p-6 bg-white rounded-xl shadow-lg transition-shadow hover:shadow-xl">
+            <div className="w-full max-w-lg p-4 md:p-6 bg-white rounded-xl shadow-lg transition-shadow hover:shadow-xl">
               <ContactUsForm />
             </div>
           </div>
@@ -355,7 +374,7 @@ export default function Home() {
       </section>
 
       {/* Footer Section */}
-      <footer className="py-12 px-4 md:px-0 bg-gray-50">
+      <footer className="py-8 md:py-12 px-4 md:px-0 bg-gray-50">
         <div className="container mx-auto max-w-6xl">
           <div className="flex flex-col md:flex-row justify-between items-center">
             {/* <div className="mb-6 md:mb-0">
@@ -389,7 +408,7 @@ export default function Home() {
               </a>
             </div> */}
           </div>
-          <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500">
+          <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-200 text-center text-sm md:text-base text-gray-500">
             &copy; {new Date().getFullYear()} Vid2Sum. All rights reserved.
           </div>
         </div>
