@@ -10,6 +10,9 @@ export function getVideoIdFromUrl(url: string): string | null {
       } else if (url.includes("v=")) {
         // Standard URL format: https://youtube.com/watch?v=VIDEO_ID
         videoId = url.split("v=")[1]?.split("&")[0] || null;
+      } else if (url.includes("youtube.com/live/")) {
+        // Live video URL format: https://youtube.com/live/VIDEO_ID
+        videoId = url.split("live/")[1]?.split(/[?#]/)[0] || null;
       }
   
     return videoId;

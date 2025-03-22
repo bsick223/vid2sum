@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 // Import your icon components here, for example:
-import { Link, FileText, MessageSquare, Wrench } from 'lucide-react';
+import { Link, MessageSquare, Wrench } from 'lucide-react';
 
 // Define your steps data
 const steps = [
