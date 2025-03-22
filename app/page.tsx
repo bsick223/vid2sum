@@ -123,16 +123,20 @@ export default function Home() {
               <div className="w-full lg:w-1/2 space-y-6 md:space-y-8">
                 <div>
                   <span className="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-sm font-medium mb-3 md:mb-4">
-                    AI-Powered Learning Assistant
+                    #1 AI Learning Assistant for students
                   </span>
-                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                    Watch Less, <br />
-                    <span className="text-blue-600">Learn More</span>
+                  <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold  text-blue-600 leading-tight">
+                    Watch Less,
+                    <br />
+                    <span className="text-3xl md:text-5xl lg:text-6xl font-bold  text-gray-900 leading-tight ">
+                      Learn More
+                    </span>
                   </h1>
                 </div>
 
                 <p className="text-lg md:text-xl text-gray-600">
-                  Summarize videos and ask follow up questions
+                  <strong>Join 10,000+ students</strong> saving 70% study time
+                  and improving grades with AI-powered video summaries.
                 </p>
 
                 <div className="pt-2 md:pt-4">
@@ -161,15 +165,18 @@ export default function Home() {
                 <div className="flex flex-wrap gap-2 md:gap-3 pt-2">
                   <div className="inline-flex items-center text-sm md:text-base text-gray-700">
                     <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2" />
-                    <span>Save 70% study time</span>
+                    <span>Video</span>
+                    {/* <span>Save 70% study time</span> */}
                   </div>
                   <div className="inline-flex items-center text-sm md:text-base text-gray-700">
                     <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2" />
-                    <span>Better grades</span>
+                    <span>Summary</span>
+                    {/*  <span>Better grades</span> */}
                   </div>
                   <div className="inline-flex items-center text-sm md:text-base text-gray-700">
                     <CheckCircle className="w-4 h-4 md:w-5 md:h-5 text-blue-500 mr-1 md:mr-2" />
-                    <span>Made for students</span>
+                    <span>Q&A</span>
+                    {/*  <span>Made for students</span> */}
                   </div>
                 </div>
               </div>
@@ -382,8 +389,41 @@ export default function Home() {
       </div> */}
 
       {/* CTA Section */}
-      <section className="py-12 md:py-20 bg-blue-600">
-        <div className="container mx-auto px-4 max-w-4xl text-center">
+      <section className="py-12 md:py-20 relative overflow-hidden">
+        {/* Background styling */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-blue-500 to-blue-700">
+          {/* Noise texture */}
+          <div
+            className="absolute inset-0 mix-blend-overlay opacity-15"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+              width: "100%",
+              height: "100%",
+            }}
+          ></div>
+
+          {/* Decorative elements */}
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                "radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 25%), radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.3) 0%, transparent 20%)",
+            }}
+          ></div>
+          <div className="absolute top-0 left-0 right-0 h-1/3 bg-gradient-to-b from-blue-400 opacity-20"></div>
+          <div className="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-blue-400 opacity-20 blur-3xl"></div>
+          <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-blue-300 opacity-20 blur-3xl"></div>
+
+          {/* Subtle grain overlay */}
+          <div
+            className="absolute inset-0 opacity-30 mix-blend-soft-light"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='grainyFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23grainyFilter)'/%3E%3C/svg%3E")`,
+            }}
+          ></div>
+        </div>
+
+        <div className="container mx-auto px-4 max-w-4xl text-center relative z-10">
           <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
             Ready to Study Smarter?
           </h2>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "./ui/button";
-import logo from "../assets/Logo(transparent).png"
+import logo from "../assets/Logo(transparent).png";
 import Image from "next/image";
 
 function Header() {
@@ -17,8 +17,8 @@ function Header() {
           {/* Left */}
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-4">
-                <Image
-                src={logo} 
+              <Image
+                src={logo}
                 alt="Vid2Sum Logo"
                 width={150} // Adjust width as needed
                 height={50} // Adjust height as needed
@@ -78,7 +78,7 @@ function Header() {
                     footer: "text-gray-500",
                   },
                 }}
-              > 
+              >
                 <Button
                   variant="ghost"
                   className="relative bg-white text-blue-600
