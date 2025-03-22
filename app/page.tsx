@@ -12,6 +12,7 @@ import YoutubeVideoForm from "@/components/YoutubeVideoForm";
 import { ColorKey } from "@/types/types";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import ContactUsForm from "@/components/ContactUsForm";
+import ReviewsSection from "@/components/ReviewsSection";
 
 const features = [
   {
@@ -242,6 +243,9 @@ export default function Home() {
       {/* How it works Section - with Scroll Animations */}
       <section className="py-12 md:py-20 bg-gray-50 relative overflow-hidden"></section>
       <HowItWorksSection />
+
+      {/* Reviews Section */}
+      <ReviewsSection />
 
       {/* Features Section */}
       <section className="py-12 md:py-20 bg-gray-50">

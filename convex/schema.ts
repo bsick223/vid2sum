@@ -42,13 +42,23 @@ export default defineSchema({
     .index("by_video_id", ["videoId"])
     .index("by_user_and_video", ["userId", "videoId"]),
 
-    contact: defineTable({
-      name: v.string(),
-      email: v.string(),
-      message: v.string(),
-      createdAt: v.number(),
-    })
+  contact: defineTable({
+    name: v.string(),
+    email: v.string(),
+    message: v.string(),
+    createdAt: v.number(),
+  })
     .index("by_email", ["email"])
     .index("by_created_at", ["createdAt"]),
-    
+
+  reviews: defineTable({
+    userId: v.optional(v.string()),
+    userEmail: v.optional(v.string()),
+    name: v.string(),
+    rating: v.number(),
+    comment: v.string(),
+    createdAt: v.number(),
+  })
+    .index("by_created_at", ["createdAt"])
+    .index("by_user_id", ["userId"]),
 });
