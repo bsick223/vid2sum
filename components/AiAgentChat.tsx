@@ -8,7 +8,7 @@ import { FeatureFlag } from "@/features/flags";
 import { BotIcon, LetterText, PenIcon } from "lucide-react";
 import { useEffect, useRef } from "react";
 import { toast } from "sonner";
-import QuestionMarkTooltip from "./QuestionMarkTooltip";
+// import QuestionMarkTooltip from "./QuestionMarkTooltip";
 
 interface ToolInvocation {
   toolCallId: string;
@@ -23,7 +23,7 @@ interface ToolPart {
 
 const formatToolInvocation = (part: ToolPart) => {
   if (!part.toolInvocation) return "Unknown Tool";
-  return `🛠️ Tool Used: ${part.toolInvocation.toolName}`;
+  return ` Tool Used: ${part.toolInvocation.toolName}`;
 };
 
 function AiAgentChat({
@@ -137,6 +137,15 @@ function AiAgentChat({
     <div className="flex flex-col h-full">
       <div className="hidden lg:block px-4 pb-3 border-b border-gray-100">
         <h2 className="text-lg font-semibold text-gray-800">AI Agent</h2>
+        {status === "submitted" && (
+          <p className="text-sm text-gray-500 mt-1 flex items-center gap-2">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            </span>
+            Thinking...
+          </p>
+        )}
       </div>
 
       {/* Messages */}
@@ -147,14 +156,75 @@ function AiAgentChat({
         <div className="space-y-6">
           {displayMessages.length === 0 && (
             <div className="flex items-center justify-center h-full min-h-[200px]">
-              <div className="text-center space-y-2">
-                <h3 className="text-lg font-medium text-gray-700">
-                  Welcome to AI Agent Chat
-                </h3>
-                <p className="text-sm text-gray-500">
-                  Ask any question about your video!
-                </p>
-              </div>
+              {status === "submitted" ? (
+                <div className="text-center space-y-4">
+                  <div className="relative mx-auto w-64 h-16 flex items-center justify-center rounded-xl overflow-hidden">
+                    <div className="flex items-center">
+                      <span className="text-xl font-bold text-gray-700 tracking-wide">
+                        <span className="inline-block animate-pulse-fast">
+                          L
+                        </span>
+                        <span
+                          className="inline-block animate-pulse-fast"
+                          style={{ animationDelay: "0.1s" }}
+                        >
+                          o
+                        </span>
+                        <span
+                          className="inline-block animate-pulse-fast"
+                          style={{ animationDelay: "0.2s" }}
+                        >
+                          a
+                        </span>
+                        <span
+                          className="inline-block animate-pulse-fast"
+                          style={{ animationDelay: "0.3s" }}
+                        >
+                          d
+                        </span>
+                        <span
+                          className="inline-block animate-pulse-fast"
+                          style={{ animationDelay: "0.4s" }}
+                        >
+                          i
+                        </span>
+                        <span
+                          className="inline-block animate-pulse-fast"
+                          style={{ animationDelay: "0.5s" }}
+                        >
+                          n
+                        </span>
+                        <span
+                          className="inline-block animate-pulse-fast"
+                          style={{ animationDelay: "0.6s" }}
+                        >
+                          g
+                        </span>
+                      </span>
+                      <span className="flex space-x-1 ml-1">
+                        <span
+                          className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-bounce"
+                          style={{ animationDelay: "0s" }}
+                        ></span>
+                        <span
+                          className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-bounce"
+                          style={{ animationDelay: "0.2s" }}
+                        ></span>
+                        <span
+                          className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-bounce"
+                          style={{ animationDelay: "0.4s" }}
+                        ></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="text-center space-y-4 p-8">
+                  <p className="text-lg text-gray-700 font-bold">
+                    What can I help with?
+                  </p>
+                </div>
+              )}
             </div>
           )}
 
@@ -167,27 +237,35 @@ function AiAgentChat({
             >
               <div
                 className={`max-w-[85%] ${
-                  m.role === "user" ? "bg-blue-500" : "bg-gray-100"
-                } rounded-2xl px-4 py-3`}
+                  m.role === "user"
+                    ? "bg-gradient-to-br from-blue-500 to-blue-600 text-white shadow-md"
+                    : "bg-white border border-gray-100 shadow-sm"
+                } rounded-2xl px-5 py-3.5`}
               >
                 {m.parts && m.role === "assistant" ? (
                   // AI Agent Message
                   <div className="space-y-3">
                     {m.parts.map((part, i) =>
                       part.type === "text" ? (
-                        <div key={i} className="prose prose-sm max-w-none">
+                        <div
+                          key={i}
+                          className="prose prose-sm max-w-none text-gray-700"
+                        >
                           <ReactMarkdown>{part.text}</ReactMarkdown>
                         </div>
                       ) : part.type === "tool-invocation" ? (
                         <div
                           key={i}
-                          className="bg-white/50 rounded-lg p-2 space-y-2 text-gray-800"
+                          className="bg-gray-50 rounded-lg p-3 space-y-2 text-gray-800 border border-gray-100"
                         >
-                          <div className="font-medium text-xs">
+                          <div className="font-medium text-xs flex items-center gap-1.5">
+                            <span className="bg-blue-100 text-blue-800 p-1 rounded">
+                              🛠️
+                            </span>
                             {formatToolInvocation(part as ToolPart)}
                           </div>
                           {(part as ToolPart).toolInvocation.result && (
-                            <pre className="text-xs bg-white/75 p-2 rounded overflow-auto max-h-40">
+                            <pre className="text-xs bg-gray-50 p-2 rounded overflow-auto max-h-40 border border-gray-200">
                               {JSON.stringify(
                                 (part as ToolPart).toolInvocation.result,
                                 null,
@@ -213,7 +291,7 @@ function AiAgentChat({
       </div>
 
       {/* Input Form */}
-      <QuestionMarkTooltip />
+      {/* <QuestionMarkTooltip /> */}
       <div className="border-t border-gray-100 p-4 bg-white">
         <div className="space-y-3">
           <form
@@ -244,6 +322,24 @@ function AiAgentChat({
                 const target = e.target as HTMLTextAreaElement;
                 target.style.height = "auto";
                 target.style.height = `${target.scrollHeight}px`;
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && !e.shiftKey) {
+                  e.preventDefault();
+                  if (
+                    input.trim() &&
+                    status !== "streaming" &&
+                    status !== "submitted" &&
+                    isVideoAnalysisEnabled &&
+                    !isVideoLoading
+                  ) {
+                    handleSubmit(
+                      e as unknown as React.FormEvent<HTMLFormElement>
+                    );
+                    const target = e.target as HTMLTextAreaElement;
+                    target.style.height = "40px";
+                  }
+                }
               }}
               rows={1}
               disabled={!isVideoAnalysisEnabled || isVideoLoading}
