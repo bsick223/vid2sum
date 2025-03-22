@@ -73,26 +73,17 @@ export async function subscribeUserToMailchimp() {
       console.log("Mailchimp response:", response);
       return { success: true, data: response };
     } catch (addError: any) {
-      // If member already exists, update them instead
+      // If member already exists, log it and return success
       if (
         addError.status === 400 &&
         addError.response?.body?.title === "Member Exists"
       ) {
-        // Get the MD5 hash of the lowercase email for the API
-        const emailHash = require("crypto")
-          .createHash("md5")
-          .update(email.toLowerCase())
-          .digest("hex");
-
-        // Update the existing member instead
-        const updateResponse = await mailchimp.lists.setListMember(
-          MAILCHIMP_LIST_ID as string,
-          emailHash,
-          memberData
-        );
-
-        console.log("Mailchimp update response:", updateResponse);
-        return { success: true, data: updateResponse, updated: true };
+        console.log("User already subscribed to Mailchimp");
+        return {
+          success: true,
+          alreadySubscribed: true,
+          message: "User already subscribed to newsletter",
+        };
       }
 
       // If it's not a Member Exists error, rethrow it
