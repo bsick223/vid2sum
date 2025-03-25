@@ -480,6 +480,14 @@ export default function Home() {
           </div>
           <div className="mt-6 md:mt-8 pt-6 md:pt-8 border-t border-gray-200 text-center text-sm md:text-base text-gray-500">
             &copy; {new Date().getFullYear()} Vid2Sum. All rights reserved.
+            <div className="mt-2 text-xs">
+              <a
+                href="/privacy"
+                className="hover:text-blue-600 transition-colors"
+              >
+                Privacy Policy
+              </a>
+            </div>
           </div>
         </div>
       </footer>

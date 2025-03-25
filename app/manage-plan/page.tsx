@@ -14,8 +14,16 @@ function ManagePlan() {
       <SchematicComponent componentId="cmpn_QYhRH4U6sKW" />
       {/* <CountdownTimer/> */}
       <footer className="mt-8 text-center text-sm text-gray-500">
-        <p className="mb-2">Need help with your subscription? Contact our support team at <span className="text-blue-600">brendansick@gmail.com</span></p>
+        <p className="mb-2">
+          Need help with your subscription? Contact our support team at{" "}
+          <span className="text-blue-600">brendansick@gmail.com</span>
+        </p>
         <p>&copy; {new Date().getFullYear()} TrendFast. All rights reserved.</p>
+        <p className="mt-2 text-xs">
+          <a href="/privacy" className="hover:text-blue-600 transition-colors">
+            Privacy Policy
+          </a>
+        </p>
       </footer>
     </div>
   );
