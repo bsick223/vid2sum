@@ -15,7 +15,7 @@ const anthropic = createAnthropic({
   },
 });
 
-const model = anthropic("claude-3-7-sonnet-20250219");
+const model = anthropic("claude-sonnet-4-6");
 
 export async function POST(req: Request) {
   const { messages, videoId } = await req.json();
