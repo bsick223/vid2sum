@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+# pnpm content-addressable store when using a project-local store-dir
+/.pnpm-store/
 /.pnp
 .pnp.*
 .yarn/*
