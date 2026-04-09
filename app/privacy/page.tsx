@@ -73,7 +73,7 @@ export default function PrivacyPolicy() {
               href="https://clerk.com/privacy"
               className="text-blue-600 hover:underline"
             >
-              Clerk's Privacy Policy
+              Clerk&apos;s Privacy Policy
             </a>{" "}
             for details on their data practices.
           </li>
@@ -84,7 +84,7 @@ export default function PrivacyPolicy() {
               href="https://schematichq.com/privacy"
               className="text-blue-600 hover:underline"
             >
-              Schematic's Privacy Policy
+              Schematic&apos;s Privacy Policy
             </a>{" "}
             for information on their data practices.
           </li>
@@ -164,7 +164,7 @@ export default function PrivacyPolicy() {
         </ul>
         <p>
           To exercise these rights, please contact us using the information
-          provided in the "Contact Us" section below.
+          provided in the &quot;Contact Us&quot; section below.
         </p>
       </section>
 
@@ -220,7 +220,7 @@ export default function PrivacyPolicy() {
       </section>
 
       <section className="mb-6">
-        <h2 className="text-xl font-semibold mb-3">Children's Privacy</h2>
+        <h2 className="text-xl font-semibold mb-3">Children&apos;s Privacy</h2>
         <p>
           Our service is not directed to individuals under 16. We do not
           knowingly collect personal information from children under 16. If we
@@ -237,8 +237,8 @@ export default function PrivacyPolicy() {
         </h2>
         <p className="mb-4">
           If you are a California resident, the California Consumer Privacy Act,
-          as amended by the California Privacy Rights Act of 2020 ("
-          <strong>CCPA</strong>"), requires us to provide some additional
+          as amended by the California Privacy Rights Act of 2020 (&quot;
+          <strong>CCPA</strong>&quot;), requires us to provide some additional
           information to California residents. This section only applies to you
           if you are a California resident, although please note that this
           information and the rights afforded herein are the same as offered to
@@ -262,8 +262,9 @@ export default function PrivacyPolicy() {
                   Personal Information
                 </th>
                 <th className="border border-gray-300 px-4 py-2 text-left">
-                  Categories of Third Parties to Which We "Share" and "Sell"
-                  this Personal Information for Advertising/Analytics Purposes
+                  Categories of Third Parties to Which We &quot;Share&quot; and
+                  &quot;Sell&quot; this Personal Information for
+                  Advertising/Analytics Purposes
                 </th>
               </tr>
             </thead>
@@ -400,12 +401,13 @@ export default function PrivacyPolicy() {
         <p className="mb-3">
           For more information about each category of personal information,
           purpose of use, and third parties to which we disclose personal
-          information, please see the "Information We Collect" and "How We Use
-          Your Information" sections of our Privacy Policy.
+          information, please see the &quot;Information We Collect&quot; and
+          &quot;How We Use Your Information&quot; sections of our Privacy
+          Policy.
         </p>
 
         <h3 className="text-lg font-medium mt-4 mb-2">
-          Your Choices Regarding "Sharing" and "Selling"
+          Your Choices Regarding &quot;Sharing&quot; and &quot;Selling&quot;
         </h3>
         <p className="mb-3">
           You have the right to opt out of our sale/sharing of your personal
@@ -423,30 +425,30 @@ export default function PrivacyPolicy() {
         </p>
         <p className="mb-3">
           The CCPA also allows you to limit the use or disclosure of your
-          "sensitive personal information" (as defined in the CCPA) if your
-          sensitive personal information is used for certain purposes. Please
-          note that we do not use or disclose sensitive personal information
-          other than for business purposes for which you cannot opt out under
-          the CCPA.
+          &quot;sensitive personal information&quot; (as defined in the CCPA) if
+          your sensitive personal information is used for certain purposes.
+          Please note that we do not use or disclose sensitive personal
+          information other than for business purposes for which you cannot opt
+          out under the CCPA.
         </p>
         <p className="mb-3">
-          Please see the "Your Rights and Choices" section of our Policy above
-          for information about the additional rights you have with respect to
-          your personal information under California law and how to exercise
-          them.
+          Please see the &quot;Your Rights and Choices&quot; section of our
+          Policy above for information about the additional rights you have with
+          respect to your personal information under California law and how to
+          exercise them.
         </p>
 
         <h3 className="text-lg font-medium mt-4 mb-2">
           Shine the Light Disclosure
         </h3>
         <p className="mb-3">
-          The California "Shine the Light" law gives residents of California the
-          right under certain circumstances to request information from us
-          regarding the manner in which we disclose certain categories of
-          personal information (as defined in the Shine the Light law) with
-          third parties for their direct marketing purposes. We currently do not
-          disclose your personal information to third parties for their own
-          direct marketing purposes.
+          The California &quot;Shine the Light&quot; law gives residents of
+          California the right under certain circumstances to request
+          information from us regarding the manner in which we disclose certain
+          categories of personal information (as defined in the Shine the Light
+          law) with third parties for their direct marketing purposes. We
+          currently do not disclose your personal information to third parties
+          for their own direct marketing purposes.
         </p>
       </section>
 
@@ -469,8 +471,8 @@ export default function PrivacyPolicy() {
         <p className="mb-3">
           Have any questions, comments, or concerns about this privacy policy,
           your data, or your rights with respect to your information? Please get
-          in touch by emailing us at vid2sum@gmail.com and we'll be happy to try
-          to try to answer them!
+          in touch by emailing us at support@schematichq.com and we&apos;ll be
+          happy to try to answer them!
         </p>
       </section>
 
